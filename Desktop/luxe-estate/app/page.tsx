@@ -1,37 +1,49 @@
 import Container from "@/components/common/Container";
-import PageSection from "@/components/layout/pageSection";
-import SectionHeading from "@/components/common/SectionHeading";
-import StatCard from "@/components/cards/StatCard";
+import {
+  Badge,
+  Button,
+  Card,
+  Typography,
+} from "@/components/ui";
 
 export default function Home() {
   return (
-    <main>
-      <PageSection>
-        <Container>
-          <SectionHeading
-            subtitle="Luxury Living"
-            title="Find Your Dream Property"
-            description="Discover premium homes, villas and apartments crafted for modern living."
-          />
+    <main className="py-20">
+      <Container>
+        <Badge>Luxury Living</Badge>
 
-          <div className="mt-20 grid gap-8 md:grid-cols-3">
-            <StatCard
-              number="500+"
-              title="Luxury Properties"
-            />
+        <Typography
+          variant="hero"
+          className="mt-6 max-w-3xl"
+        >
+          Find Your Dream Luxury Home.
+        </Typography>
 
-            <StatCard
-              number="25+"
-              title="Cities Covered"
-            />
+        <Typography className="mt-6 max-w-xl">
+          Discover premium villas, penthouses and
+          apartments crafted for modern living.
+        </Typography>
 
-            <StatCard
-              number="12k+"
-              title="Happy Clients"
-            />
-          </div>
-        </Container>
-      </PageSection>
+        <div className="mt-10 flex gap-4">
+          <Button>Explore Properties</Button>
+
+          <Button variant="outline">
+            Book Visit
+          </Button>
+        </div>
+
+        <div className="mt-20">
+          <Card>
+            <Typography variant="h3">
+              Luxury Villa
+            </Typography>
+
+            <Typography className="mt-3">
+              Starting from $1.2M
+            </Typography>
+          </Card>
+        </div>
+      </Container>
     </main>
   );
 }
