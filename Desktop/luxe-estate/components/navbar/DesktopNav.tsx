@@ -1,20 +1,29 @@
-"use client";
+import Link from 'next/link'
+import { Button } from '@/components/ui/button'
 
-import Link from "next/link";
-import { NAV_ITEMS } from "@/constants/navigation";
+const navItems = [
+    { label: 'Home', href: '/' },
+    { label: 'Properties', href: '/properties' },
+    { label: 'About', href: '/about' },
+    { label: 'Agents', href: '/agents' },
+    { label: 'Contact', href: '/contact' },
+]
 
-export default function DesktopNav() {
+export const DesktopNav = () => {
     return (
-        <nav className="hidden items-center gap-10 lg:flex">
-            {NAV_ITEMS.map((item) => (
+        <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
+            {navItems.map((item) => (
                 <Link
-                    key={item.title}
+                    key={item.label}
                     href={item.href}
-                    className="text-sm font-medium text-gray-700 transition hover:text-amber-600"
+                    className="hover:text-accent transition-colors"
                 >
-                    {item.title}
+                    {item.label}
                 </Link>
             ))}
+            <Button variant="primary" size="sm" asChild>
+                <Link href="/book-visit">Book Visit</Link>
+            </Button>
         </nav>
-    );
+    )
 }

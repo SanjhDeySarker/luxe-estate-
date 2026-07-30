@@ -1,50 +1,44 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-:root {
-  --background: #fafaf8;
-  --foreground: #111827;
+@layer base {
+  * {
+    @apply border-border;
+  }
 
-  --primary: #111827;
-  --secondary: #c9a227;
+  body {
+    @apply bg-background text-text font-body antialiased;
+  }
 
-  --muted: #6b7280;
-
-  --border: #e5e7eb;
-
-  --white: #ffffff;
-
-  --radius: 16px;
-
-  --container-width: 1280px;
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-heading;
+  }
 }
 
-html {
-  scroll-behavior: smooth;
-}
+@layer utilities {
+  .glass {
+    @apply bg-white/50 backdrop-blur-md border border-white/30;
+  }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-inter);
-}
+  .glass-dark {
+    @apply bg-primary/50 backdrop-blur-md border border-white/10;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: var(--font-playfair);
-}
+  .card-hover {
+    @apply transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl;
+  }
 
-img {
-  user-select: none;
-}
+  .text-gold {
+    color: #C9A227;
+  }
 
-button {
-  cursor: pointer;
-}
-
-section {
-  padding: 96px 0;
+  .shadow-luxe {
+    box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.08);
+  }
 }

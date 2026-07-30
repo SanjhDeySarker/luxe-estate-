@@ -1,47 +1,25 @@
-import { cn } from "@/lib/utils";
+import { cn } from '@/lib/utils'
+import { ReactNode } from 'react'
 
-type Variant =
-    | "hero"
-    | "h1"
-    | "h2"
-    | "h3"
-    | "body"
-    | "muted";
-
-interface Props {
-    children: React.ReactNode;
-    className?: string;
-    variant?: Variant;
+interface TypographyProps {
+    children: ReactNode
+    className?: string
 }
 
-const variants = {
-    hero:
-        "font-[var(--font-playfair)] text-6xl lg:text-7xl font-semibold leading-tight",
+export const H1 = ({ children, className }: TypographyProps) => (
+    <h1 className={cn('font-heading text-4xl sm:text-5xl lg:text-6xl xl:text-7xl leading-[1.1] tracking-tight', className)}>
+        {children}
+    </h1>
+)
 
-    h1:
-        "font-[var(--font-playfair)] text-5xl font-semibold",
+export const H2 = ({ children, className }: TypographyProps) => (
+    <h2 className={cn('font-heading text-3xl sm:text-4xl lg:text-5xl leading-tight', className)}>
+        {children}
+    </h2>
+)
 
-    h2:
-        "font-[var(--font-playfair)] text-4xl font-semibold",
-
-    h3:
-        "font-[var(--font-playfair)] text-2xl font-semibold",
-
-    body:
-        "text-lg leading-8 text-gray-600",
-
-    muted:
-        "text-sm text-gray-500",
-};
-
-export function Typography({
-    children,
-    variant = "body",
-    className,
-}: Props) {
-    return (
-        <div className={cn(variants[variant], className)}>
-            {children}
-        </div>
-    );
-}
+export const Body = ({ children, className }: TypographyProps) => (
+    <p className={cn('text-secondary-text leading-relaxed', className)}>
+        {children}
+    </p>
+)

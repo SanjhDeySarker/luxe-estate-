@@ -1,15 +1,10 @@
-import Link from "next/link";
+import Link from 'next/link'
 
-export default function Logo() {
+export const Logo = () => {
     return (
-        <Link href="/" className="flex flex-col leading-none">
-            <span className="font-[var(--font-playfair)] text-3xl font-semibold tracking-wide">
-                Luxe
-            </span>
-
-            <span className="text-xs uppercase tracking-[0.4em] text-amber-600">
-                Estate
-            </span>
+        <Link href="/" className="flex items-center gap-2">
+            <span className="text-2xl font-heading tracking-tight text-primary">LUXE</span>
+            <span className="text-xs font-light tracking-[0.2em] text-secondary-text uppercase">Estate</span>
         </Link>
-    );
+    )
 }
